@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Navbar, Nav, NavItem, Well } from 'react-bootstrap';
 import './App.css';
 import Web3 from 'web3';
+import logo from './ether4.png';
+import Tools from './Tools';
+
 
 const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
@@ -64,14 +67,73 @@ var contractAddress = "0x65601fcf248988bb79e1358d77edcc649f7a548a";
 var simpleContract = new web3.eth.Contract(abiData);
 simpleContract.options.address = contractAddress;
 
+class Example extends React.Component {
+  render() {
+    return (
+      <div style={{ }}>
+        <h1>Example Quiz</h1>
+          <h3>Step 1: Register for the Game </h3>
+          <h6>To register, navigate to the sart contract and send the Buy In Amount.</h6>
 
-class App extends Component {
+
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
+            <Well className="text-center" style={{width: '95%', }}>
+              <p>Status: Registration Active (Game Live!)</p>
+              <p>Buy In Amount: 0.01 ETH </p>
+              <button> Buy In! </button>
+              <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
+              <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+            </Well>
+        </div>
+            <h3>Step 2: Solve the Puzzle </h3>
+            <h6>Puzzle description added when game goes live.  Rush to solve it first!</h6>
+
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
+            <Well className="text-center" style={{width: '95%', }}>
+              <p>Status: Registration Active (Game Live!)</p>
+              <p>Buy In Amount: 0.01 ETH </p>
+              <button> Buy In! </button>
+              <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
+              <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+              <p>Assign the numbers 1 through 26 to the letters a through z </p>
+              <p>Find 2 US Presidents who’s first name letters add to the same number </p>
+              <p>Take those 2 first names and combine them </p>
+              <p>Delete any letter which shows up more than once </p>
+              <p>Scramble the remaining letters and use them to obtain a word that would receive the highest Scrabble score</p>
+              <p>You do not need to use all the remaining letters</p>
+              <p>Use SHA(256) on this word to derive the private key of the wallet that unlocks this puzzle’s smart contract.</p>
+            </Well>
+          </div>
+            <h3>Solution</h3>
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
+              <Well className="text-center" style={{width: '95%', }}>
+            <h3>Grover = 7 + 18 + 15 + 22 + 5 + 18 = 85</h3>
+            <h3>Franklin = 6 + 18 + 1 + 14 + 11 + 12 + 9 + 14 = 85</h3>
+            <h3>govefankli</h3>
+            <h3>fanglike</h3>
+              </Well>
+            </div>
+            <h3>Step 3: Get the Keys </h3>
+            <h6>Paste your solution into the sha256 function on the Tools page to derive the public and private keys </h6>
+            {/*<img  style="width: 50%; border: 5px solid grey;" src="screen_sha.png" alt="Boy in a jacket">*/}
+            <h3>Step 3: Claim Your Ether! </h3>
+            <h6>Enter the Winning Wallet using the private key derived in Step 3
+            Call the contract function named payout and enter your personal wallet public addess so you can collect your prize!
+            Make sure to use the same wallet address that you used when you registered for the game.
+            Funds will be distributed when the next block is mined. </h6>
+            {/*<img  style="width: 50%; border: 5px solid grey;" src="screen_sha.png" alt="Boy in a jacket">*/}
+      </div>
+    );
+  }
+}
+
+class QuizObject extends Component {
   saySomething(something) {
       console.log(something);
   }
 
   handleClick(e) {
-    
+
     web3.eth.getAccounts(function(error, result) {
         if(error != null)
             console.log("Couldnt get accounts");
@@ -89,14 +151,6 @@ class App extends Component {
                            });
 
     });
-
-
-
-
-
-
-
-
   }
 
   componentDidMount() {
@@ -105,18 +159,128 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <p>Hey! Hey! Hey! Hey! Click that shit! Hey!</p>
-        <button onClick={this.handleClick.bind(this)} > Whats the time? </button>
+      <div className="QuizObject" style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
+      <Well className="text-center" style={{width: '95%', }}>
+        <p>Status: Registration Active (Game Live!)</p>
+        <p>Buy In Amount: 0.01 ETH </p>
+        <button onClick={this.handleClick.bind(this)} > Buy In! </button>
+        <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
+        <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+        <p>Assign the numbers 1 through 26 to the letters a through z </p>
+        <p>Find 2 US Presidents who’s first name letters add to the same number </p>
+        <p>Take those 2 first names and combine them </p>
+        <p>Delete any letter which shows up more than once </p>
+        <p>Scramble the remaining letters and use them to obtain a word that would receive the highest Scrabble score</p>
+        <p>You do not need to use all the remaining letters</p>
+        <p>Use SHA(256) on this word to derive the private key of the wallet that unlocks this puzzle’s smart contract.</p>
+      </Well>
       </div>
 
     );
   }
 }
 
+class Banner extends React.Component {
+  render() {
+    return (
+      <div style={{ height: '10%' }}>
+        <img src={logo} alt="logo" style={{maxWidth: '100%'}}/>
+      </div>
+    );
+  }
+}
+
+function AllTogether(props) {
+  const pagenumber = props.page;
+  if (pagenumber == 1) {
+    return <div>
+            <Banner />
+            <QuizObject />
+          </div>;
+  }
+  else if (pagenumber == 2) {
+    return <div>
+            <Example />
+          </div>;
+  }
+  else {
+    return <div>
+            <Tools />
+          </div>;
+  }
+
+}
+
+const divStyle = {
+  box1: {
+  color: 'blue',
+  height: '10%',
+  background: 'red',
+  border: 2,
+  },
+};
 
 
+class Navigation extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {page: 1};
+  }
 
+  handleSelect(eventKey){
+    console.log(eventKey);
+    if (eventKey === 1) {
+      this.setState({
+        page: 1
+      });
+    }
+    else if (eventKey === 2) {
+      this.setState({
+        page: 2
+      });
+    }
+    else {
+      this.setState({
+        page: 3
+      });
+    }
 
+  };
+
+  render() {
+    return (
+      <div>
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#brand">EtherQuiz.io</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+
+        <Navbar.Collapse>
+          <Nav onSelect={this.handleSelect.bind(this)}>
+            <NavItem eventKey={1}>Home</NavItem>
+            <NavItem eventKey={2}>Example</NavItem>
+            <NavItem eventKey={3}>Tools</NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+         <AllTogether page={this.state.page}/>
+         </div>
+    );
+  }
+}
+
+class App extends Component {
+
+  render() {
+    return (
+        <div>
+          <Navigation/>
+        </div>
+    );
+  }
+}
 
 export default App;
