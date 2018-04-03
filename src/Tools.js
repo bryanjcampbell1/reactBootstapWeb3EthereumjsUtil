@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, Well, Button, FormGroup,ControlLabel,FormControl,HelpBlock } from 'react-bootstrap';
-import './forge-sha256.min';
 import EthUtil from 'ethereumjs-util';
 import Web3 from 'web3';
 
@@ -39,14 +38,6 @@ class Tools extends Component {
                       private: web3.utils.sha3(e.target.value).substr(2),
                       public: privateKeyToAddress(web3.utils.sha3(e.target.value).substr(2))
                     });
-{/*
-      var privateKeyVar = web3.utils.sha3(this.state.value);
-      this.setState({ private: privateKeyVar });
-
-      var publicKeyVar = privateKeyToAddress(privateKeyVar.substr(2));
-      this.setState({ public: publicKeyVar});
-*/}
-
     }
 
   render() {
@@ -57,10 +48,8 @@ class Tools extends Component {
           <h6>Enter puzzle answer below. Private key will be generated using sha256. Wallet address will be generated from private key. </h6>
           <form>
             <FormGroup controlId="formBasicText">
-              <ControlLabel>Working example with validation</ControlLabel>
               <FormControl type="text" onChange={this.handleChange}/>
               <FormControl.Feedback />
-              <HelpBlock>Validation is based on string length.</HelpBlock>
             </FormGroup>
           </form>
           <h4> private key: {this.state.private}</h4>
