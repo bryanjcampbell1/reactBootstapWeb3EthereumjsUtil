@@ -3,6 +3,10 @@ import { Navbar, Nav, NavItem, Well, Button } from 'react-bootstrap';
 import './App.css';
 import Web3 from 'web3';
 import logo from './ether4.png';
+import genKey from './generateKeys.png';
+import metaMask from './metamask.png';
+import win from './winningWallet.png';
+import impAcc from './importAccount.png';
 import Tools from './Tools';
 
 
@@ -70,9 +74,16 @@ simpleContract.options.address = contractAddress;
 class Example extends React.Component {
   render() {
     return (
-      <div style={{ }}>
+      <div style={{padding: "20px" }}>
         <h1>Example Quiz</h1>
-          <h3>Step 1: Register for the Game </h3>
+
+        <h3>Step 1: Download the Metamask Chrome Extension and Sign In</h3>
+        <h6>Make sure to transfer Ether to your account</h6>
+        <Well className="text-center" style={{width: '95%', }}>
+          <img src={metaMask} alt="metaMask" style={{maxWidth: '20%'}}/>
+        </Well>
+
+          <h3>Step 2: Register for the Game </h3>
           <h6>To register, navigate to the sart contract and send the Buy In Amount.</h6>
 
 
@@ -82,10 +93,10 @@ class Example extends React.Component {
               <p>Buy In Amount: 0.01 ETH </p>
               <Button bsStyle="primary"> Buy In! </Button>
               <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
-              <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+              <p>Winning Wallet Address: 0x28944f7d5b83d073988994bd57dfee21be39cb7b </p>
             </Well>
         </div>
-            <h3>Step 2: Solve the Puzzle </h3>
+            <h3>Step 3: Solve the Puzzle </h3>
             <h6>Puzzle description added when game goes live.  Rush to solve it first!</h6>
 
           <div style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
@@ -94,14 +105,14 @@ class Example extends React.Component {
               <p>Buy In Amount: 0.01 ETH </p>
               <Button bsStyle="primary"> Buy In! </Button>
               <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
-              <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+              <p>Winning Wallet Address: 0x28944f7d5b83d073988994bd57dfee21be39cb7b </p>
               <p>Assign the numbers 1 through 26 to the letters a through z </p>
               <p>Find 2 US Presidents who’s first name letters add to the same number </p>
               <p>Take those 2 first names and combine them </p>
               <p>Delete any letter which shows up more than once </p>
               <p>Scramble the remaining letters and use them to obtain a word that would receive the highest Scrabble score</p>
               <p>You do not need to use all the remaining letters</p>
-              <p>Use SHA(256) on this word to derive the private key of the wallet that unlocks this puzzle’s smart contract.</p>
+              <p>Use Tools page to generate the private key of the wallet that unlocks this puzzle’s smart contract.</p>
             </Well>
           </div>
             <h3>Solution</h3>
@@ -113,15 +124,20 @@ class Example extends React.Component {
             <h3>fanglike</h3>
               </Well>
             </div>
-            <h3>Step 3: Get the Keys </h3>
-            <h6>Paste your solution into the sha256 function on the Tools page to derive the public and private keys </h6>
-            {/*<img  style="width: 50%; border: 5px solid grey;" src="screen_sha.png" alt="Boy in a jacket">*/}
+            <h3>Step 4: Get the Keys </h3>
+            <h6>Paste your solution into the text field on the Tools page to derive the public and private keys </h6>
+            <Well className="text-center" style={{width: '95%', }}>
+              <img src={genKey} alt="genKey" style={{maxWidth: '95%'}}/>
+            </Well>
             <h3>Step 3: Claim Your Ether! </h3>
-            <h6>Enter the Winning Wallet using the private key derived in Step 3
-            Call the contract function named payout and enter your personal wallet public addess so you can collect your prize!
-            Make sure to use the same wallet address that you used when you registered for the game.
-            Funds will be distributed when the next block is mined. </h6>
-            {/*<img  style="width: 50%; border: 5px solid grey;" src="screen_sha.png" alt="Boy in a jacket">*/}
+            <h6>Enter the Winning Wallet using the private key derived in Step 3</h6>
+            <img src={impAcc} alt="impAcc" style={{maxWidth: '50%'}}/>
+            <img src={win} alt="win" style={{maxWidth: '50%'}}/>
+            <h6>Call the contract function named payout and enter your personal wallet public addess so you can collect your prize!</h6>
+            <img src={logo} alt="logo" style={{maxWidth: '50%'}}/>
+            <h6>Make sure to use the same wallet address that you used when you registered for the game.</h6>
+            <h6>Funds will be distributed when the next block is mined. </h6>
+
       </div>
     );
   }
@@ -165,7 +181,7 @@ class QuizObject extends Component {
         <p>Buy In Amount: 0.01 ETH </p>
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)} > Buy In! </Button>
         <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
-        <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
+        <p>Winning Wallet Address: 0x28944f7d5b83d073988994bd57dfee21be39cb7b </p>
         <p>Assign the numbers 1 through 26 to the letters a through z </p>
         <p>Find 2 US Presidents who’s first name letters add to the same number </p>
         <p>Take those 2 first names and combine them </p>

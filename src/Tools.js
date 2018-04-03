@@ -8,7 +8,6 @@ const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
 var $ = require('jquery');
 
-
 var hexToBytes = function(hex) {
   for (var bytes = [], c = 0; c < hex.length; c+=2)
   bytes.push(parseInt(hex.substr(c, 2), 16));
@@ -43,7 +42,7 @@ class Tools extends Component {
   render() {
     return (
 
-      <div className="Tools" >
+      <div className="Tools" style={{padding: "20px" }}>
           <h1>Wallet address generator</h1>
           <h6>Enter puzzle answer below. Private key will be generated using sha256. Wallet address will be generated from private key. </h6>
           <form>
@@ -55,8 +54,18 @@ class Tools extends Component {
           <h4> private key: {this.state.private}</h4>
           <h4>wallet address: {this.state.public}</h4>
 
+          <h1>Claim Your Ether!</h1>
+          <h6>Check to make sure you are claiming Ether from within Winning Account</h6>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: 25}}>
+            <Well className="text-center" style={{width: '95%', }}>
+          <form>
+            <FormGroup>
+              <FormControl type="text" placeholder="Paste the address of the account that you Bought In from here" />
+            </FormGroup>
+          </form>
+</Well>
       </div>
-
+</div>
     );
   }
 }
