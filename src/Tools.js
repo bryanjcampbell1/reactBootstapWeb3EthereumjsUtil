@@ -35,13 +35,17 @@ class Tools extends Component {
 
 
     handleChange(e) {
-      this.setState({ value: e.target.value });
-
+      this.setState({ value: e.target.value,
+                      private: web3.utils.sha3(e.target.value).substr(2),
+                      public: privateKeyToAddress(web3.utils.sha3(e.target.value).substr(2))
+                    });
+{/*
       var privateKeyVar = web3.utils.sha3(this.state.value);
       this.setState({ private: privateKeyVar });
 
       var publicKeyVar = privateKeyToAddress(privateKeyVar.substr(2));
       this.setState({ public: publicKeyVar});
+*/}
 
     }
 
