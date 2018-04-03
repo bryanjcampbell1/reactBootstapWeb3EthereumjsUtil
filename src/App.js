@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, Well } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Well, Button } from 'react-bootstrap';
 import './App.css';
 import Web3 from 'web3';
 import logo from './ether4.png';
@@ -80,7 +80,7 @@ class Example extends React.Component {
             <Well className="text-center" style={{width: '95%', }}>
               <p>Status: Registration Active (Game Live!)</p>
               <p>Buy In Amount: 0.01 ETH </p>
-              <button> Buy In! </button>
+              <Button bsStyle="primary"> Buy In! </Button>
               <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
               <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
             </Well>
@@ -92,7 +92,7 @@ class Example extends React.Component {
             <Well className="text-center" style={{width: '95%', }}>
               <p>Status: Registration Active (Game Live!)</p>
               <p>Buy In Amount: 0.01 ETH </p>
-              <button> Buy In! </button>
+              <Button bsStyle="primary"> Buy In! </Button>
               <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
               <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
               <p>Assign the numbers 1 through 26 to the letters a through z </p>
@@ -163,7 +163,7 @@ class QuizObject extends Component {
       <Well className="text-center" style={{width: '95%', }}>
         <p>Status: Registration Active (Game Live!)</p>
         <p>Buy In Amount: 0.01 ETH </p>
-        <button onClick={this.handleClick.bind(this)} > Buy In! </button>
+        <Button bsStyle="primary" onClick={this.handleClick.bind(this)} > Buy In! </Button>
         <p>Smart Contract Address: 0xfb35ad702e715e61a3f362c62da7c1bd235102fc </p>
         <p>Winning Wallet Address: 0x3233789cd8984e98a837f9d8079b800f755b1501 </p>
         <p>Assign the numbers 1 through 26 to the letters a through z </p>
